@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const fileUpload = require("express-fileupload");
 const BlogPost = require("./models/BlogPost");
 
 mongoose.connect("mongodb://localhost:27017/my_blog_database", {
@@ -12,6 +13,7 @@ mongoose.connect("mongodb://localhost:27017/my_blog_database", {
 const app = express();
 
 app.set("view engine", "ejs");
+app.use(fileUpload());
 app.use(express.static("public"));
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -24,12 +26,10 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  // res.sendFile(path.resolve(__dirname, 'pages/about.html'))
   res.render("about");
 });
 
 app.get("/contact", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, "pages/contact.html"));
   res.render("contact");
 });
 
@@ -45,8 +45,14 @@ app.get("/posts/new", (req, res) => {
 });
 
 app.post("/posts/store", async (req, res) => {
-  await BlogPost.create(req.body);
-  res.redirect("/");
+  let image = req.files.image;
+  image.mv(path.resolve(__dirname, "public/img", image.name), async (error) => {
+    await BlogPost.create({
+      ...req.body,
+      image: "/img/" + image.name,
+    });
+    res.redirect("/");
+  });
 });
 
 app.listen(5000, () => {

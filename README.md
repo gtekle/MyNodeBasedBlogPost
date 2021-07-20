@@ -1,4 +1,4 @@
-# My NodeJS Based Blog Post
+# NodeJS, Express & MongoDB Based Simple Blog Post
 
 # Install NodeJS
 
@@ -64,3 +64,8 @@ body-parser is now deprecated and is included in express itself. So, the followi
 
 - app.use(express.json({ extended: true }))
 - app.use(express.urlencoded({ extended: true }))
+
+# Install express-fileupload package
+
+https://www.npmjs.com/package/express-fileupload
+$ npm i express-fileupload

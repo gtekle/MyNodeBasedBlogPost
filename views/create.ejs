@@ -39,8 +39,8 @@
               <form
                 action="/posts/store"
                 method="POST"
-                id="contactForm"
-                data-sb-form-api-token="API_TOKEN"
+                id="createPostForm"
+                enctype="multipart/form-data"
               >
                 <div class="form-floating">
                   <input
@@ -63,6 +63,15 @@
                     data-sb-validations="required"
                   ></textarea>
                   <label for="body">Body</label>
+                </div>
+                <div class="form-floating">
+                  <input
+                    class="form-control"
+                    id="image"
+                    name="image"
+                    type="file"
+                  />
+                  <label for="image">Image</label>
                 </div>
                 <br />
 
