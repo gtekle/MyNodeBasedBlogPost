@@ -1,10 +1,16 @@
 const express = require("express");
-const path = require("path");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
-const BlogPost = require("./models/BlogPost");
+const newPostController = require("./controllers/newPost");
+const aboutContorller = require("./controllers/about");
+const contactController = require("./controllers/contact");
+const homeController = require("./controllers/home");
+const storePostController = require("./controllers/storePost");
+const getPostController = require("./controllers/getPost");
+const validateMiddleware = require("./middlewares/validationMiddleware");
 
+// connecting to MongoDB database
 mongoose.connect("mongodb://localhost:27017/my_blog_database", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,42 +24,15 @@ app.use(express.static("public"));
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", async (req, res) => {
-  const blogposts = await BlogPost.find({});
-  res.render("index", {
-    blogposts,
-  });
-});
+//Form input validation custom middleware
+app.use("/posts/store", validateMiddleware);
 
-app.get("/about", (req, res) => {
-  res.render("about");
-});
-
-app.get("/contact", (req, res) => {
-  res.render("contact");
-});
-
-app.get("/post/:id", async (req, res) => {
-  const blogpost = await BlogPost.findById(req.params.id);
-  res.render("post", {
-    blogpost,
-  });
-});
-
-app.get("/posts/new", (req, res) => {
-  res.render("create");
-});
-
-app.post("/posts/store", async (req, res) => {
-  let image = req.files.image;
-  image.mv(path.resolve(__dirname, "public/img", image.name), async (error) => {
-    await BlogPost.create({
-      ...req.body,
-      image: "/img/" + image.name,
-    });
-    res.redirect("/");
-  });
-});
+app.get("/", homeController);
+app.get("/about", aboutContorller);
+app.get("/contact", contactController);
+app.get("/post/:id", getPostController);
+app.get("/posts/new", newPostController);
+app.post("/posts/store", storePostController);
 
 app.listen(5000, () => {
   console.log("App Server started on port 5000...");
