@@ -27,79 +27,81 @@
     <main class="mb-4">
       <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7">
-            <div class="my-5">
-              <!-- * * * * * * * * * * * * * * *-->
-              <!-- * * SB Forms Contact Form * *-->
-              <!-- * * * * * * * * * * * * * * *-->
-              <!-- This form is pre-integrated with SB Forms.-->
-              <!-- To make this form functional, sign up at-->
-              <!-- https://startbootstrap.com/solution/contact-forms-->
-              <!-- to get an API token!-->
-              <form
-                action="/posts/store"
-                method="POST"
-                id="createPostForm"
-                enctype="multipart/form-data"
-              >
-                <div class="form-floating">
-                  <input
-                    class="form-control"
-                    id="title"
-                    name="title"
-                    type="text"
-                    placeholder="title ..."
-                    data-sb-validations="required"
-                  />
-                  <label for="title">Title</label>
-                </div>
-                <div class="form-floating">
-                  <textarea
-                    class="form-control"
-                    id="body"
-                    name="body"
-                    data-sb-validations="required"
-                  ></textarea>
-                  <!-- <div id="summernote"></div> -->
-                  <script>
-                    $("#body").summernote({
-                      placeholder: "Hello blogger. Welcome...",
-                      tabsize: 2,
-                      height: 120,
-                      toolbar: [
-                        ["style", ["style"]],
-                        ["font", ["bold", "underline", "clear"]],
-                        ["color", ["color"]],
-                        ["para", ["ul", "ol", "paragraph"]],
-                        ["table", ["table"]],
-                        ["insert", ["link", "picture", "video"]],
-                        ["view", ["fullscreen", "codeview", "help"]],
-                      ],
-                    });
-                  </script>
-                  <label for="body">Body</label>
-                </div>
-                <div class="form-floating">
-                  <input
-                    class="form-control"
-                    id="image"
-                    name="image"
-                    type="file"
-                  />
-                  <label for="image">Image</label>
-                </div>
-                <br />
+          <!-- <div class="col-md-10 col-lg-8 col-xl-7"> -->
+          <div class="my-5">
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- * * SB Forms Contact Form * *-->
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- This form is pre-integrated with SB Forms.-->
+            <!-- To make this form functional, sign up at-->
+            <!-- https://startbootstrap.com/solution/contact-forms-->
+            <!-- to get an API token!-->
+            <form
+              action="/posts/store"
+              method="POST"
+              id="createPostForm"
+              enctype="multipart/form-data"
+            >
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  id="title"
+                  name="title"
+                  type="text"
+                  placeholder="title ..."
+                  data-sb-validations="required"
+                />
+                <label for="title">Title</label>
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  id="body"
+                  name="body"
+                  data-sb-validations="required"
+                ></textarea>
+                <!-- <div id="summernote"></div> -->
+                <script>
+                  $("#body").summernote({
+                    placeholder:
+                      "Welcome blogger. What message do you want to share with the world?",
+                    tabsize: 2,
+                    height: 300,
+                    width: null,
+                    toolbar: [
+                      ["style", ["style"]],
+                      ["font", ["bold", "underline", "clear"]],
+                      ["color", ["color"]],
+                      ["para", ["ul", "ol", "paragraph"]],
+                      ["table", ["table"]],
+                      ["insert", ["link", "picture", "video"]],
+                      ["view", ["fullscreen", "codeview", "help"]],
+                    ],
+                  });
+                </script>
+                <label for="body">Body</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  id="image"
+                  name="image"
+                  type="file"
+                />
+                <label for="image">Image</label>
+              </div>
+              <br />
 
-                <!-- Submit Button-->
-                <button
-                  class="btn btn-primary text-uppercase"
-                  id="submitButton"
-                  type="submit"
-                >
-                  Send
-                </button>
-              </form>
-            </div>
+              <!-- Submit Button-->
+              <button
+                class="btn btn-primary text-uppercase"
+                id="submitButton"
+                type="submit"
+              >
+                Send
+              </button>
+            </form>
+            <!-- </div> -->
           </div>
         </div>
       </div>

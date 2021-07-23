@@ -7,7 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
-  "author": "",
+  "author": "Start Bootstrap",
+  "contributors": [
+    "David Miller (http://davidmiller.io/)",
+    "Tekle Gebreyohannes"
+  ],
+  "engines": {
+    "node": "14.17.0"
+  },
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

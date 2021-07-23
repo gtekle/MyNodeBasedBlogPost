@@ -20,7 +20,9 @@ const redirectIfAuthenticatedMiddleware = require("./middlewares/redirectIfAuthe
 const logoutController = require("./controllers/logout");
 
 global.loggedIn = null;
-const dbConUrl = "mongodb://localhost:27017/my_blog_database";
+// const dbConUrl = "mongodb://localhost:27017/my_blog_database";
+const pass = "AdiWeynay@123";
+const dbConUrl = `mongodb+srv://mongoDBUser:${pass}@cluster0.2owxn.mongodb.net/my_blog_database`;
 const cookieSecret = "killer bees";
 
 // connecting to MongoDB database
@@ -84,6 +86,10 @@ app.use((req, res) => {
   res.render("notfound");
 });
 
-app.listen(5000, () => {
-  console.log("App Server started on port 5000...");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 5000;
+}
+app.listen(port, () => {
+  console.log(`Server listening at ${port}...`);
 });

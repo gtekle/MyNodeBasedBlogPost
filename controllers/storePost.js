@@ -11,7 +11,6 @@ module.exports = (req, res) => {
         image: "/img/" + image.name,
         userid: req.session.userId,
       });
-      console.log(req.session);
       res.redirect("/");
     }
   );
