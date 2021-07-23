@@ -58,10 +58,25 @@
                     class="form-control"
                     id="body"
                     name="body"
-                    placeholder="Enter your post's body here..."
-                    style="height: 12rem"
                     data-sb-validations="required"
                   ></textarea>
+                  <!-- <div id="summernote"></div> -->
+                  <script>
+                    $("#body").summernote({
+                      placeholder: "Hello blogger. Welcome...",
+                      tabsize: 2,
+                      height: 120,
+                      toolbar: [
+                        ["style", ["style"]],
+                        ["font", ["bold", "underline", "clear"]],
+                        ["color", ["color"]],
+                        ["para", ["ul", "ol", "paragraph"]],
+                        ["table", ["table"]],
+                        ["insert", ["link", "picture", "video"]],
+                        ["view", ["fullscreen", "codeview", "help"]],
+                      ],
+                    });
+                  </script>
                   <label for="body">Body</label>
                 </div>
                 <div class="form-floating">
