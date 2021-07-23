@@ -69,3 +69,8 @@ body-parser is now deprecated and is included in express itself. So, the followi
 
 https://www.npmjs.com/package/express-fileupload
 $ npm i express-fileupload
+
+# Install Password Encryption hook - bcrypt
+
+https://www.npmjs.com/package/bcrypt
+$ npm i --save bcrypt

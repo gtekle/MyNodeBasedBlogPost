@@ -1,0 +1,12 @@
+Issue 1: (node:14800) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead. (Use `node --trace-deprecation ...` to show where the warning was created
+Solution: 
+    mongoose.connect(dbURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: true,
+    })
+
+Issue 2: listen EADDRINUSE: address already in use :::5000
+Solution: $ sudo slof -i :port
+          $ sudo kill <PID>
