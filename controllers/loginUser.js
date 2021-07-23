@@ -6,14 +6,14 @@ module.exports = (req, res) => {
 
   User.findOne({ userName: userName }, (error, user) => {
     if (user) {
-      bcrypt.compare(password, user.password),
-        (error, same) => {
-          if (same) {
-            res.redirect("/");
-          } else {
-            res.redirect("/auth/login");
-          }
-        };
+      bcrypt.compare(password, user.password, (error, mach) => {
+        if (mach) {
+          req.session.userId = user._id;
+          res.redirect("/");
+        } else {
+          res.redirect("/auth/login");
+        }
+      });
     } else {
       res.redirect("/auth/login");
     }

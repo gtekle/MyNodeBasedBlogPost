@@ -13,8 +13,15 @@ const newUserController = require("./controllers/newUser");
 const storeUserController = require("./controllers/storeUser");
 const loginController = require("./controllers/login");
 const loginUserController = require("./controllers/loginUser");
+const expressSession = require("express-session");
+const authMiddleware = require("./middlewares/authMiddleware");
+const redirectIfAuthenticatedMiddleware = require("./middlewares/redirectIfAuthenticatedMiddleware");
+const logoutController = require("./controllers/logout");
 
+global.loggedIn = null;
 const dbConUrl = "mongodb://localhost:27017/my_blog_database";
+const cookieSecret = "killer bees";
+
 // connecting to MongoDB database
 mongoose.connect(dbConUrl, {
   useNewUrlParser: true,
@@ -33,17 +40,46 @@ app.use(express.urlencoded({ extended: true }));
 
 //Form input validation custom middleware
 app.use("/posts/store", validateMiddleware);
+// express session middleware
+app.use(
+  expressSession({
+    secret: cookieSecret,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use("*", (req, res, next) => {
+  loggedIn = req.session.userId;
+  next();
+});
 
 app.get("/", homeController);
 app.get("/about", aboutContorller);
 app.get("/contact", contactController);
 app.get("/post/:id", getPostController);
-app.get("/posts/new", newPostController);
-app.post("/posts/store", storePostController);
-app.get("/auth/user/register", newUserController);
-app.post("/users/register", storeUserController);
-app.get("/auth/login", loginController);
-app.post("/users/login", loginUserController);
+app.get("/posts/new", authMiddleware, newPostController);
+app.post("/posts/store", authMiddleware, storePostController);
+app.get(
+  "/auth/user/register",
+  redirectIfAuthenticatedMiddleware,
+  newUserController
+);
+app.post(
+  "/users/register",
+  redirectIfAuthenticatedMiddleware,
+  storeUserController
+);
+app.get("/auth/login", redirectIfAuthenticatedMiddleware, loginController);
+app.post(
+  "/users/login",
+  redirectIfAuthenticatedMiddleware,
+  loginUserController
+);
+app.get("/auth/logout", logoutController);
+app.use((req, res) => {
+  res.render("notfound");
+});
 
 app.listen(5000, () => {
   console.log("App Server started on port 5000...");

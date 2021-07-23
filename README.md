@@ -74,3 +74,8 @@ $ npm i express-fileupload
 
 https://www.npmjs.com/package/bcrypt
 $ npm i --save bcrypt
+
+# Install express-session (express middleware package)
+
+https://github.com/expressjs/session
+$ npm install --save express-session
