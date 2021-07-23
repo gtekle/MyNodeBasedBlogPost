@@ -79,3 +79,11 @@ $ npm i --save bcrypt
 
 https://github.com/expressjs/session
 $ npm install --save express-session
+
+# Install mongoose-unique-validator
+
+$ npm install --save mongoose-unique-validator
+
+# Install connect-flash - to flash browser session
+
+$ npm install connect-flash

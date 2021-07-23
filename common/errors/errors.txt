@@ -10,3 +10,12 @@ Solution:
 Issue 2: listen EADDRINUSE: address already in use :::5000
 Solution: $ sudo slof -i :port
           $ sudo kill <PID>
+
+Issue 3: express-session deprecated undefined resave option; provide resave option server.js
+         express-session deprecated undefined saveUninitialized option; provide saveUninitia
+Solution: 
+        app.use(session({
+            secret: cookie_secret,
+            resave: true,
+            saveUninitialized: true
+        }));         

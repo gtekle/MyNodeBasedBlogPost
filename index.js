@@ -1,6 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const flash = require("connect-flash");
 const fileUpload = require("express-fileupload");
 const newPostController = require("./controllers/newPost");
 const aboutContorller = require("./controllers/about");
@@ -33,6 +34,7 @@ mongoose.connect(dbConUrl, {
 const app = express();
 
 app.set("view engine", "ejs");
+
 app.use(fileUpload());
 app.use(express.static("public"));
 app.use(express.json({ extended: true }));
@@ -53,6 +55,7 @@ app.use("*", (req, res, next) => {
   loggedIn = req.session.userId;
   next();
 });
+app.use(flash());
 
 app.get("/", homeController);
 app.get("/about", aboutContorller);

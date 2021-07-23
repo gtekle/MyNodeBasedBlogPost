@@ -32,6 +32,15 @@
               <!-- To make this form functional, sign up at-->
               <!-- https://startbootstrap.com/solution/contact-forms-->
               <!-- to get an API token!-->
+              <div class="form-floating">
+                <% if(errors != null && errors.length > 0){ %>
+                <ul class="list-group"></ul>
+                  <% for (var i = 0; i < errors.length; i++) { %>
+                  <li class="list-group-item list-group-item-danger"><%= errors[i] %></li>
+                  <% } %>
+                </ul>
+                <% } %>
+              </div>
               <form
                 action="/users/register"
                 method="POST"
@@ -46,7 +55,7 @@
                     type="text"
                     placeholder="User Name"
                     data-sb-validations="required"
-                  />
+                    value="<%=username %>"/>
                   <label for="userName">User Name</label>
                 </div>
                 <div class="form-floating">
@@ -57,8 +66,8 @@
                     type="password"
                     placeholder="Password"
                     data-sb-validations="required"
-                  />
-                  <label for="userName">Password</label>
+                    value="<%=password %>"/>
+                  <label for="password">Password</label>
                 </div>
                 <br />
                 <!-- Submit Button-->
