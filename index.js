@@ -1,5 +1,6 @@
 const express = require("express");
 const ejs = require("ejs");
+const path = require("path");
 const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const fileUpload = require("express-fileupload");
@@ -18,6 +19,8 @@ const expressSession = require("express-session");
 const authMiddleware = require("./middlewares/authMiddleware");
 const redirectIfAuthenticatedMiddleware = require("./middlewares/redirectIfAuthenticatedMiddleware");
 const logoutController = require("./controllers/logout");
+var geolang = require("geolang-express");
+var i18n = require("i18n-express");
 
 global.loggedIn = null;
 // const dbConUrl = "mongodb://localhost:27017/my_blog_database";
@@ -57,6 +60,19 @@ app.use("*", (req, res, next) => {
   loggedIn = req.session.userId;
   next();
 });
+app.use(
+  geolang({
+    siteLangs: ["en", "ti", "am"],
+    cookieLangName: "ulang",
+  })
+);
+app.use(
+  i18n({
+    translationsPath: path.join(__dirname, "i18n"), // <--- use here. Specify translations files path.
+    siteLangs: ["en", "ti", "am"],
+    textsVarName: "translation",
+  })
+);
 app.use(flash());
 
 app.get("/", homeController);

@@ -87,3 +87,8 @@ $ npm install --save mongoose-unique-validator
 # Install connect-flash - to flash browser session
 
 $ npm install connect-flash
+
+# Internationalization (i18n):
+
+$ npm install i18n-express
+$ npm install geolang-express
