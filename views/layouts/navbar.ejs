@@ -16,41 +16,50 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto py-4 py-lg-0">
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a>
+          <a class="nav-link px-lg-3 py-3 py-lg-4" href="/"><%=translation.index_Home_menu_item%></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="about">About</a>
+          <a class="nav-link px-lg-3 py-3 py-lg-4" href="about"><%=translation.index_About_menu_item%></a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="post">Sample Post</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact">Contact</a>
+          <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact"><%=translation.index_Contact_menu_item%></a>
         </li>
         <% if(loggedIn){ %>
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="/posts/new">
-            New Post
+            <%=translation.index_New_Post_menu_item%>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="/auth/logout">
-            Log out
+            <%=translation.index_Logout_menu_item%>
           </a>
         </li>
         <%} %> <% if(!loggedIn){ %>
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="/auth/login">
-            Login
+            <%=translation.index_Login_menu_item%>
           </a>
         </li>
         <%} %> <% if(!loggedIn){ %>
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="/auth/user/register">
-            New User
+            <%=translation.index_register_user_menu_item%>
           </a>
         </li>
         <%} %>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="ti"?"active":"")%>" href="/?clang=ti">ትግርኛ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="am"?"active":"")%>" href="/?clang=am">አማርኛ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a>
+        </li>
       </ul>
     </div>
   </div>
