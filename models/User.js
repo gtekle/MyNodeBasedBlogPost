@@ -15,10 +15,8 @@ const UserSchema = new Schema({
   },
 });
 
-// Unique validator in mongoose
 UserSchema.plugin(uniqueValidator);
 
-// to change user data before saving it into the database
 UserSchema.pre("save", function (next) {
   const user = this;
   bcrypt.hash(user.password, 10, (error, hash) => {
