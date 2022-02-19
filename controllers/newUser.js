@@ -7,9 +7,8 @@ module.exports = (req, res) => {
     username = data.username;
     password = data.password;
   }
-  // renders registerUser.ejs under views folder
+
   res.render("registerUser", {
-    // errors: req.session.validationErrors,
     errors: req.flash("validationErrors"),
     username: username,
     password: password,

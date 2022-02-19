@@ -1,94 +1,84 @@
 # NodeJS, Express & MongoDB Based Simple Blog Post
 
-# Install NodeJS
+## Description
 
-https://nodejs.org/en/
-$ sudo apt install nodejs
+> This project is a website for my blog post where I use Tigrigna, Amharic, and English languages to share what is in my mind. It was developed as a personal exercise to learn Node.js with Express.js. 
 
-# Install Express
+## Built With
 
-https://expressjs.com/
-$ npm install express --sav
+This project is build with:
 
-# Install EJS Templating Engine
+- Node.js
+- Express.js
+- Mongoose.js
+- EJS Templating Engine
+- CSS
 
-https://ejs.co/
-$ npm install ejs
+## Live Demo
+- [live link](https://node-blog-web-app.herokuapp.com/)
 
-# Install MongoDB
+## Getting Started
 
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+If you want to run the project locally in your browser you need to install: 
 
-1. Import the public key used by the package management system
-   $ wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+  - Node
+  - Npm (Node Package Manager)
+  - Git
+  - Text Editor
 
-2. Create a list file for MongoDB.
-   $ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+To get the content of this project locally you need to run this command in your terminal:
 
-3. Reload local package database.
-   $ sudo apt-get update
+ > `git clone https://github.com/gtekle/mmo-games.git`
 
-4. Install the MongoDB packages.
-   $ sudo apt-get install -y mongodb-org
+You need to then install the packages locally to your system by running: 
 
-5. Running MongoDB - Start MongoDB.
-   $ sudo systemctl start mongod
-6. Running MongoDB - Verify that MongoDB has started successfully
-   $ sudo systemctl status mongod
-7. Running MongoDB - Stop MongoDB
-   $ sudo systemctl stop mongod
-8. Running MongoDB - Restart MongoDB
-   $ sudo systemctl restart mongod
-9. Running MongoDB - Begin using MongoDB
-   $ mongo
+ > npm install 
 
-# Install MongoDB Compass
+To start the server in development mode, Run: 
 
-https://docs.mongodb.com/compass/current/install/
+ > npm run start 
 
-1. Download MongoDB Compass
-   $ wget https://downloads.mongodb.com/compass/mongodb-compass_1.26.1_amd64.deb
-2. Install MongoDB Compass
-   $ sudo dpkg -i mongodb-compass_1.26.1_amd64.deb
-3. Start MongoDB Compass
-   $ mongodb-compass
+## Test
 
-# Install Mongoose
+For tracking linter errors locally you need to follow these steps:
 
-https://mongoosejs.com/docs/
-$ npm install mongoose --save
+- For tracking the linter errors in HTML files run:
 
-# Install Body Parser Middleware (body-parser)
+  > npx hint .
 
-body-parser is now deprecated and is included in express itself. So, the following lines of code can be used instead.
+- And for tracking the linter errors in CSS files run:
 
-- app.use(express.json({ extended: true }))
-- app.use(express.urlencoded({ extended: true }))
+  > npx stylelint "**/*.css"
 
-# Install express-fileupload package
+- And for tracking the linter errors in JS files run:
 
-https://www.npmjs.com/package/express-fileupload
-$ npm i express-fileupload
+  > npx eslint .
 
-# Install Password Encryption hook - bcrypt
+- To run tests (project uses the [Jest](https://jestjs.io/) framework) you can run the following npm script in your command line:
 
-https://www.npmjs.com/package/bcrypt
-$ npm i --save bcrypt
+  > npx run test
 
-# Install express-session (express middleware package)
 
-https://github.com/expressjs/session
-$ npm install --save express-session
+## 👤 Author
 
-# Install mongoose-unique-validator
+👤 **Alick Nyirenda**
+- GitHub: [@githubhandle](https://github.com/Beardless-sheik)
+- Twitter: [@twitterhandle](https://twitter.com/Beardless_Sheik)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alick-nyirenda/)
 
-$ npm install --save mongoose-unique-validator
+👤 **Tekle Gebreyohannes**
+- GitHub: [@gtekle](https://github.com/gtekle)
+- Twitter: [@teklegyohannes](https://twitter.com/teklegyohannes)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tekle-gebreyohannes-kidanemariam-7605752b)
 
-# Install connect-flash - to flash browser session
+## Contributing
 
-$ npm install connect-flash
+Feel free to check the [issues page](https://github.com/Beardless-sheik/AwesomeBooks/issues) for comments and please offer any contributions!
 
-# Internationalization (i18n):
+## Show your support
 
-$ npm install i18n-express
-$ npm install geolang-express
+Give a :star: if you like this project!
+
+## Acknowledgments
+
+- Thanks to [Microverse](www.microverse.org) team that helped with project guidelines

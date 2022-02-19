@@ -21,9 +21,6 @@
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="about"><%=translation.index_About_menu_item%></a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4" href="post">Sample Post</a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link px-lg-3 py-3 py-lg-4" href="contact"><%=translation.index_Contact_menu_item%></a>
         </li>
@@ -52,14 +49,29 @@
         </li>
         <%} %>
         <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="ti"?"active":"")%>" href="/?clang=ti">ትግርኛ</a>
+          <div class="dropdown">
+            <button class="dropbtn">Languages</button>
+            <div class="dropdown-content">
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a>
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="ti"?"active":"")%>" href="/?clang=ti">ትግርኛ</a>
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="am"?"active":"")%>" href="/?clang=am">አማርኛ</a>
+            </div>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="am"?"active":"")%>" href="/?clang=am">አማርኛ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a>
-        </li>
+        <!-- <li class="nav-item">
+          <ul class="languages">
+            <li class="nav-item">Languages</li>
+            <li class="nav-link">
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="en"?"active":"")%>" href="/?clang=en">English</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="ti"?"active":"")%>" href="/?clang=ti">ትግርኛ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-lg-3 py-3 py-lg-4 <%=(lang=="am"?"active":"")%>" href="/?clang=am">አማርኛ</a>
+            </li>
+          </ul>
+        </li> -->
       </ul>
     </div>
   </div>
