@@ -28,7 +28,7 @@ If you want to run the project locally in your browser you need to install:
 
 To get the content of this project locally you need to run this command in your terminal:
 
- > `git clone https://github.com/gtekle/mmo-games.git`
+ > `git clone https://github.com/gtekle/MyNodeBasedBlogPost.git`
 
 You need to then install the packages locally to your system by running: 
 
@@ -60,11 +60,6 @@ For tracking linter errors locally you need to follow these steps:
 
 
 ## 👤 Author
-
-👤 **Alick Nyirenda**
-- GitHub: [@githubhandle](https://github.com/Beardless-sheik)
-- Twitter: [@twitterhandle](https://twitter.com/Beardless_Sheik)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alick-nyirenda/)
 
 👤 **Tekle Gebreyohannes**
 - GitHub: [@gtekle](https://github.com/gtekle)
